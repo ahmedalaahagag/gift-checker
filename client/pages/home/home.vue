@@ -8,9 +8,7 @@
         </div>
     </div>
 </template>
-
 <style lang="sass" src="./home.scss"></style>
-
 <script type="text/babel">
     import _ from 'lodash';
     import $http from 'axios';
@@ -19,18 +17,23 @@
         data: function()
         {
             return {
+                gifts:[],
                 state: stateSvc.state
             };
         },
+        ready: function() {
+            this.getGifts()
+        },
         methods: {
             getGifts: function() {
-                console.log("HERE");
+                var self = this;
                 $http.get('https://jsonplaceholder.typicode.com/todos').then(function (response) {
-                    console.log(response);
+                   if(response.status==200){
+                       self.$data.gifts = response.data;
+                   }
                 });
             }
         },
-        created:{
-        },
+
     }
 </script>
