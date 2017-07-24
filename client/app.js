@@ -50,10 +50,6 @@ RouterSvc.map({
     '/example': {
         name: 'example',
         component: ExampleComponent
-    },
-    '/gifts': {
-        name: 'gifts',
-        component: ExampleComponent
     }
 });
 
