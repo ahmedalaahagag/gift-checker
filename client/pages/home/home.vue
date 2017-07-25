@@ -2,9 +2,16 @@
     <div id="home" class="container">
         <div>
             <h4 class="text-center">Welcome to your gifts list !</h4>
-            <div v-for="gift in gifts">
-                {{gift.title}}
-            </div>
+                <div v-for="gift in gifts">
+                    <span class="col-md-6" v-bind:style="[gift.completed==true ? {'text-decoration':'line-through'}:{}]">{{gift.title}}</span>
+                    <button class="btn btn-xs btn-danger col-md-1 action-btn" @click="">
+                        <i class="fa fa-trash-o fa-icon-fix"></i>
+                    </button>
+                    <button class="btn btn-xs btn-success col-md-1 action-btn" @click="">
+                        <i class="fa fa-shopping-cart fa-icon-fix"></i>
+                    </button>
+                    <br>
+                </div>
         </div>
     </div>
 </template>
