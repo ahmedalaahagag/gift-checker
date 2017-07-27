@@ -16,15 +16,17 @@ var router = express.Router();
 //----------------------------------------------------------------------------------------------------------------------
 // REST Endpoints
 //----------------------------------------------------------------------------------------------------------------------
+var mongojs = require('mongojs')
+var db = mongojs('gifts', ['gifts']);
 
 router.get('/', function(req, resp)
 {
     routeUtils.interceptHTML(resp, function()
     {
-        var gifts=[
-            {title:'gift1',bought:true},
-            {title:'gift2',bought:false}
-            ];
+        var gifts=[];
+        db.gifts.find({}, function (err, docs) {
+           gifts=docs;
+        });
         resp.json(gifts);
     });
 });

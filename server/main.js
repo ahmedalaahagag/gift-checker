@@ -37,7 +37,6 @@ var logger = logging.loggerFor(module);
 import exampleRouter  from './routes/example';
 import giftsRouter  from './routes/gifts';
 import routeUtils from './routes/utils';
-
 //----------------------------------------------------------------------------------------------------------------------
 
 // Build the express app
