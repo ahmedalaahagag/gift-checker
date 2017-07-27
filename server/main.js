@@ -35,6 +35,7 @@ var logger = logging.loggerFor(module);
 
 // Routes
 import exampleRouter  from './routes/example';
+import giftsRouter  from './routes/gifts';
 import routeUtils from './routes/utils';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -68,9 +69,11 @@ app.use(express.static(path.resolve('./dist')));
 
 // Set up our application routes
 app.use('/example', exampleRouter);
+app.use('/gifts', giftsRouter);
 
 // Serve index.html
 app.get('/', routeUtils.serveIndex);
+
 
 // Start the server
 var server = app.listen(config.http.port || 3000, function()

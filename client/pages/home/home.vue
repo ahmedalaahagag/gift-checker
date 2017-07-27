@@ -2,12 +2,9 @@
     <div id="home" class="container">
         <div>
             <h4 class="text-center">Welcome to your gifts list !</h4>
-                <div v-for="gift in gifts">
-                    <span class="col-md-6" v-bind:style="[gift.completed==true ? {'text-decoration':'line-through'}:{}]">{{gift.title}}</span>
-                    <button class="btn btn-xs btn-danger col-md-1 action-btn" @click="">
-                        <i class="fa fa-trash-o fa-icon-fix"></i>
-                    </button>
-                    <button class="btn btn-xs btn-success col-md-1 action-btn" @click="">
+                <div v-for="(index,gift) in gifts">
+                    <span class="col-md-6" v-bind:style="[gift.bought==true ? {'text-decoration':'line-through'}:{}]">{{gift.title}}</span>
+                    <button class="btn btn-xs btn-success col-md-1 action-btn" @click="giftBought(index)">
                         <i class="fa fa-shopping-cart fa-icon-fix"></i>
                     </button>
                     <br>
@@ -34,11 +31,17 @@
         methods: {
             getGifts: function() {
                 var self = this;
-                $http.get('https://jsonplaceholder.typicode.com/todos').then(function (response) {
+                // TODO : HTTP request to get from server
+                $http.get('http://localhost:8008/gifts').then(function (response) {
+                    console.log(response.data);
                    if(response.status==200){
                        self.$data.gifts = response.data;
                    }
                 });
+            },
+            giftBought:function (index) {
+                // TODO : HTTP request to set the bought value
+                this.$data.gifts[index].bought=true;
             }
         },
 
