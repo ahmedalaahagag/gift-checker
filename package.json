@@ -13,7 +13,10 @@
     "axios": "^0.8.1",
     "bluebird": "^3.1.1",
     "lodash": "^4.0.0",
+    "mini-toastr": "^0.6.5",
     "vue": "^1.0.12",
+    "vue-bulma-notification": "^1.1.1",
+    "vue-notifications": "^0.8.0",
     "vue-router": "^0.7.7",
     "vueboot": "^0.3.0"
   },

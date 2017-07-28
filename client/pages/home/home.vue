@@ -17,6 +17,7 @@
     import _ from 'lodash';
     import $http from 'axios';
     import stateSvc from '../../components/state/stateService.js';
+
     export default {
         data: function()
         {
@@ -33,7 +34,6 @@
                 var self = this;
                 // TODO : HTTP request to get from server
                 $http.get('http://localhost:8008/gifts').then(function (response) {
-                    console.log(response.data);
                    if(response.status==200){
                        self.$data.gifts = response.data;
                    }
@@ -42,6 +42,12 @@
             giftBought:function (index) {
                 // TODO : HTTP request to set the bought value
                 this.$data.gifts[index].bought=true;
+                var id = this.$data.gifts[index]._id;
+                $http.get('http://localhost:8008/gifts/'+id+'/bought').then(function (response) {
+                    if(response.status==200){
+                        alert("users will be notified that you bought this gift");
+                    }
+                });
             }
         },
 
