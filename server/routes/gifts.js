@@ -13,8 +13,7 @@ import routeUtils from './utils';
 var router = express.Router();
 var mongojs = require('mongojs')
 var db = mongojs('gifts', ['gifts']);
-var expressValidator = require('express-validator');
-router.use(expressValidator())
+var ObjectId = db.ObjectId;
 
 //----------------------------------------------------------------------------------------------------------------------
 // REST Endpoints
@@ -35,9 +34,11 @@ router.get('/:id/bought', function(req, resp)
 {
     routeUtils.interceptHTML(resp, function()
     {
-        req.checkBody('id','Id is required').notEmpty();
-        var id = req.body.id;
-        db.gifts.update({id:id},  {bought: true},function () {
+        var id = req.params.id;
+        db.gifts.update({_id:ObjectId(id)},{
+            $set:{bought: true},
+            $currentDate:{lastModified: true}}
+            ,function () {
            return resp.json(true);
         })
     });

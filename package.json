@@ -12,6 +12,8 @@
   "dependencies": {
     "axios": "^0.8.1",
     "bluebird": "^3.1.1",
+    "express-validation": "^1.0.2",
+    "joi": "^10.6.0",
     "lodash": "^4.0.0",
     "mini-toastr": "^0.6.5",
     "vue": "^1.0.12",
