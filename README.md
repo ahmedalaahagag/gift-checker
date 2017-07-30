@@ -1,7 +1,13 @@
-# Gift Checker
+# Wish Granted
   
-gift checker is a tutorial app that allows a user to add gifts list and share it with friends , expressjs is used for the back-end and vuejs for the front-end.
-Based on Vue Seed by : https://github.com/SkewedAspect/vue-seed
+Wish granted is an app that allows a user to 
+add gifts list and share it with friends,
+every user can check out what gift is available and what's has been bought to avoid repurchase the same gift
+
+Expressjs is used for the back-end and Vuejs for the front-end.
+Based on Vue Seed by : 
+
+https://github.com/SkewedAspect/vue-seed
 
 # Vue Seed
 

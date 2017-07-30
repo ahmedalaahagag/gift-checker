@@ -19,10 +19,9 @@ var ObjectId = db.ObjectId;
 // REST Endpoints
 //----------------------------------------------------------------------------------------------------------------------
 
-
+// Get Gifts list
 router.get('/', function(req, resp)
 {
-
     routeUtils.interceptHTML(resp, function()
     {
         db.gifts.find(function(err, docs){
@@ -30,6 +29,8 @@ router.get('/', function(req, resp)
         });
     });
 });
+
+// Toggle bought property for a gift
 router.get('/:id/bought', function(req, resp)
 {
     routeUtils.interceptHTML(resp, function()
