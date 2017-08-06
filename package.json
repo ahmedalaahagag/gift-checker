@@ -16,6 +16,7 @@
     "joi": "^10.6.0",
     "lodash": "^4.0.0",
     "mini-toastr": "^0.6.5",
+    "mongojs": "^2.4.0",
     "vue": "^1.0.12",
     "vue-bulma-notification": "^1.1.1",
     "vue-notifications": "^0.8.0",
